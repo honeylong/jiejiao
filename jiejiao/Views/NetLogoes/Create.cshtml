@@ -1,0 +1,30 @@
+﻿@model jiejiao.Models.NetLogo
+
+@{
+    ViewBag.Title = "上传";
+}
+
+<h2>上传Netlogo文件</h2>
+
+@using (Html.BeginForm("Create", "NetLogoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>NetLogo</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FileName, new { type = "file", @multiple = "multiple", @class = "btn btn-success", @style = "display:none" })
+                <input class="btn btn-success" type="button" onclick="FileName.click()" value="选择文件">
+                @Html.ValidationMessageFor(model => model.FileName)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="上传" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

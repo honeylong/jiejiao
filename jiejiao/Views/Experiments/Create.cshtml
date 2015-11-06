@@ -1,0 +1,91 @@
+﻿@model jiejiao.Models.NetLogo
+
+@{
+    ViewBag.Title = "CreateExperiment";
+}
+
+
+<h2>创建实验</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>NetLogo</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Experiments)
+        <div class="form-group">
+            <label class="control-label col-md-2">name</label>
+            <div class="col-md-10">
+                <input name="name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">repetitions</label>
+            <div class="col-md-10">
+                <input name="repetitions" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">runMetricsEveryStep</label>
+            <div class="col-md-10">
+                <input name="runMetricsEveryStep" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">go</label>
+            <div class="col-md-10">
+                <input name="go" value="go" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">setup</label>
+            <div class="col-md-10">
+                <input name="setup" value="setup" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">timeLimit</label>
+            <div class="col-md-10">
+                <input name="timeLimit" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">exitCondition</label>
+            <div class="col-md-10">
+                <input name="exitCondition" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">metric</label>
+            <div class="col-md-10">
+                <textarea name="metric"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">enumeratedValueSet</label>
+            <div class="col-md-10">
+                <textarea name="enumeratedValueSet"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(":submit").click(function () {
+        var d = {};
+        var t = $('form input:visible,textarea').serializeArray();
+        $.each(t, function () {
+            d[this.name] = this.value;
+        });
+        $("#Experiments").val(JSON.stringify(d));
+        //alert(JSON.stringify(d));
+    });
+</script>

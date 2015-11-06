@@ -1,0 +1,80 @@
+﻿@model jiejiao.Models.Experiment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Experiment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.repetitions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.repetitions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.runMetricsEveryStep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.runMetricsEveryStep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeLimit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeLimit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.exitCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.exitCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enumeratedValueSet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enumeratedValueSet)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

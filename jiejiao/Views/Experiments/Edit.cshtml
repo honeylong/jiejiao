@@ -1,0 +1,85 @@
+﻿@model jiejiao.Models.Experiment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Experiment</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.repetitions, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.repetitions)
+                @Html.ValidationMessageFor(model => model.repetitions)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.runMetricsEveryStep, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.runMetricsEveryStep)
+                @Html.ValidationMessageFor(model => model.runMetricsEveryStep)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.timeLimit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.timeLimit)
+                @Html.ValidationMessageFor(model => model.timeLimit)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.exitCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.exitCondition)
+                @Html.ValidationMessageFor(model => model.exitCondition)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.metric, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.metric)
+                @Html.ValidationMessageFor(model => model.metric)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.enumeratedValueSet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.enumeratedValueSet)
+                @Html.ValidationMessageFor(model => model.enumeratedValueSet)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,11 @@
+程序说明
+
+网上的一些代码号称UCenter 整合ASp，但是大部分都没有一个实例，只有一个加密解密函数，很多新手无法利用其进行实际应用。
+近期公司网站项目--课堂无忧(www.kt5u.com) 需整合asp ucenter，研究了一把UCenter，写了这个范例程序
+虽然只简单写了登陆和注册部分功能的实现，其余模块您可以依葫芦画瓢。
+
+演示地址：http://www.cycoo.net/demo/asp_to_ucenter.asp
+相关帖子：http://www.cycoo.net/dzx/forum.php?mod=viewthread&tid=3&extra=page%3D1
+程序讨论地址: http://www.cycoo.net/dzx/
+
+程序发布人QQ：59466966 

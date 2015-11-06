@@ -1,0 +1,72 @@
+﻿@model IEnumerable<jiejiao.Models.Experiment>
+
+@{
+    ViewBag.Title = "研究";
+}
+
+<h2>研究</h2>
+
+<p>
+    @Html.ActionLink("创建实验", "Create", new { id = @Html.ViewContext.RouteData.Values["id"] })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.repetitions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.runMetricsEveryStep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exitCondition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.enumeratedValueSet)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.repetitions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.runMetricsEveryStep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timeLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exitCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.metric)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.enumeratedValueSet)
+            </td>
+            <td>
+                @Html.ActionLink("运行", "Run", new { name = item.name, id = @Html.ViewContext.RouteData.Values["id"] }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.name }) |
+                @Html.ActionLink("Details", "Details", new { id = item.name }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.name })
+            </td>
+        </tr>
+    }
+
+</table>
